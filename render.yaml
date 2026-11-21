@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: sky-rivals-server
+    runtime: node
+    plan: free
+    buildCommand: npm ci
+    startCommand: npm run server
+    healthCheckPath: /health
+    envVars:
+      - key: CLIENT_ORIGIN
+        value: https://devbekadev.github.io
+      - key: SUPABASE_URL
+        value: https://ofxzrhzvhbngvhnzjnwa.supabase.co
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false

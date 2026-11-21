@@ -17,6 +17,15 @@ To host the client and server on different origins, set `CLIENT_ORIGIN` to the e
 
 GitHub Pages is deployed from the `dist` build by the workflow in `.github/workflows/pages.yml`. The Socket.IO server must also be deployed separately for online matchmaking; set the `VITE_SOCKET_URL` repository variable to its public URL when configuring that backend.
 
+### Deploy the Socket.IO server
+
+1. In Render, create a new Blueprint from this repository and apply `render.yaml`.
+2. In the Render service's environment settings, add `SUPABASE_SERVICE_ROLE_KEY` using the key from your local `.env`. Never commit this key.
+3. Copy the server's public `https://...onrender.com` URL. In GitHub repository **Settings → Secrets and variables → Actions → Variables**, add `VITE_SOCKET_URL` with that URL.
+4. Run the **Deploy GitHub Pages** workflow again so the frontend connects to the hosted server.
+
+The Render free service can sleep while idle, so the first connection after a quiet period may take a little longer.
+
 ## Gameplay
 
 - Click or press **Space** / **Arrow Up** to flap.
