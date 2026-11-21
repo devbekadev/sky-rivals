@@ -15,6 +15,8 @@ Run `supabase/schema.sql` in the Supabase SQL editor to create the scores table.
 
 To host the client and server on different origins, set `CLIENT_ORIGIN` to the exact client origin in the server environment and set `VITE_SOCKET_URL` to the Socket.IO server URL when building the client.
 
+GitHub Pages is deployed from the `dist` build by the workflow in `.github/workflows/pages.yml`. The Socket.IO server must also be deployed separately for online matchmaking; set the `VITE_SOCKET_URL` repository variable to its public URL when configuring that backend.
+
 ## Gameplay
 
 - Click or press **Space** / **Arrow Up** to flap.

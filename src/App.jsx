@@ -7,7 +7,9 @@ const BIRD_X = 106;
 const BIRD_SIZE = 34;
 const PIPE_WIDTH = 68;
 const PIPE_GAP = 154;
-const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || "http://localhost:3001";
+const SOCKET_URL =
+  import.meta.env.VITE_SOCKET_URL ||
+  (import.meta.env.DEV ? "http://localhost:3001" : window.location.origin);
 
 function makeRandom(seed) {
   let value = seed || 1;
